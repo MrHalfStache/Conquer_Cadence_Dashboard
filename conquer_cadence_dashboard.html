@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 <title>Conquer Cadence Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0c10;--surface:#111318;--surface2:#181c24;--border:#1e2430;--accent:#00e5a0;--accent2:#f7b731;--danger:#ff4f6d;--info:#4fa8ff;--purple:#a78bfa;--text:#e8eaf0;--muted:#5a6070;--label:#8a95a8}
+:root{--bg:#0c0c0e;--surface:#141416;--surface2:#1c1c1f;--border:#28282d;--accent:#ff5000;--accent2:#ffb347;--danger:#e53935;--info:#5378fc;--purple:#3d5199;--text:#f0f0f2;--muted:#5c5c64;--label:#808088}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;min-height:100vh}
 .header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;gap:12px;flex-wrap:wrap}
@@ -15,18 +15,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;letter-spacing:.04em}
 h1 span{color:var(--accent)}
-.badge{background:rgba(0,229,160,.1);color:var(--accent);border:1px solid rgba(0,229,160,.25);border-radius:4px;padding:2px 9px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em}
-.active-range-pill{background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);border-radius:20px;padding:3px 11px;font-family:'DM Mono',monospace;font-size:10px;color:var(--accent)}
+.badge{background:rgba(255,80,0,.1);color:var(--accent);border:1px solid rgba(255,80,0,.25);border-radius:4px;padding:2px 9px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em}
+.active-range-pill{background:rgba(255,80,0,.08);border:1px solid rgba(255,80,0,.2);border-radius:20px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:13px;color:var(--accent)}
 .filter-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .filter-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .range-btn{padding:5px 13px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--label);font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
-.range-btn:hover,.range-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(0,229,160,.08)}
+.range-btn:hover,.range-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(255,80,0,.08)}
 .filter-divider{width:1px;height:18px;background:var(--border);flex-shrink:0}
 .custom-dates{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .custom-dates input[type=month]{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:4px 9px;font-size:11px;font-family:'DM Sans',sans-serif;outline:none}
 .custom-dates input[type=month]:focus{border-color:var(--accent)}
 .custom-dates label{font-size:10px;color:var(--muted)}
-.apply-btn{padding:5px 13px;border-radius:6px;border:1px solid var(--accent);background:rgba(0,229,160,.1);color:var(--accent);font-size:11px;font-weight:500;cursor:pointer}
+.apply-btn{padding:5px 13px;border-radius:6px;border:1px solid var(--accent);background:rgba(255,80,0,.1);color:var(--accent);font-size:11px;font-weight:500;cursor:pointer}
 .tabs{display:flex;gap:2px;padding:16px 28px 0;border-bottom:1px solid var(--border);background:var(--surface);overflow-x:auto}
 .tab{padding:9px 16px;font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border-radius:6px 6px 0 0;color:var(--muted);border:1px solid transparent;border-bottom:none;transition:all .2s;white-space:nowrap;user-select:none}
 .tab:hover{color:var(--text)}
@@ -61,16 +61,16 @@ table{width:100%;border-collapse:collapse}
 thead tr{background:var(--surface2);border-bottom:1px solid var(--border)}
 th{padding:9px 13px;text-align:left;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none;white-space:nowrap}
 th:hover{color:var(--label)}
-td{padding:9px 13px;border-bottom:1px solid rgba(30,36,48,.6);color:var(--text);font-size:12px}
+td{padding:9px 13px;border-bottom:1px solid rgba(40,40,45,.6);color:var(--text);font-size:12px}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.02)}
 .pill{display:inline-flex;align-items:center;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
-.pill-green{background:rgba(0,229,160,.1);color:var(--accent)}
-.pill-yellow{background:rgba(247,183,49,.1);color:var(--accent2)}
-.pill-red{background:rgba(255,79,109,.12);color:var(--danger)}
-.pill-blue{background:rgba(79,168,255,.1);color:var(--info)}
+.pill-green{background:rgba(255,80,0,.1);color:var(--accent)}
+.pill-yellow{background:rgba(255,179,71,.1);color:var(--accent2)}
+.pill-red{background:rgba(229,57,53,.12);color:var(--danger)}
+.pill-blue{background:rgba(83,120,252,.1);color:var(--info)}
 .pill-gray{background:rgba(90,96,112,.2);color:var(--muted)}
-.pill-purple{background:rgba(167,139,250,.1);color:var(--purple)}
+.pill-purple{background:rgba(61,81,153,.1);color:var(--purple)}
 .bar-wrap{display:flex;align-items:center;gap:7px}
 .bar-bg{flex:1;height:4px;background:var(--border);border-radius:3px;overflow:hidden;min-width:36px}
 .bar-fill{height:100%;border-radius:3px;transition:width .5s ease}
@@ -82,10 +82,10 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .card-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--label);margin-bottom:12px}
 .donut-row{display:flex;align-items:center;gap:18px}
 .donut-legend{flex:1}
-.legend-item{display:flex;align-items:center;gap:7px;margin-bottom:7px}
-.legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.legend-label{font-size:11px;color:var(--label);flex:1}
-.legend-val{font-family:'DM Mono',monospace;font-size:11px;color:var(--text);font-weight:500}
+.legend-item{display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.legend-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.legend-label{font-size:13px;color:var(--label);flex:1}
+.legend-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--text);font-weight:500}
 .reason-item{margin-bottom:9px}
 .reason-label{font-size:11px;color:var(--label);margin-bottom:3px;display:flex;justify-content:space-between}
 .reason-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted)}
@@ -97,11 +97,11 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .overdue-cadence{font-size:10px;color:var(--muted);flex:2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .overdue-count{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--danger);min-width:28px;text-align:right}
 /* STEP TYPE DONUT GRID */
-.type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:16px}
-.type-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
+.type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.type-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center;overflow:hidden}
 .type-icon{font-size:20px;margin-bottom:6px}
-.type-name{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--label);margin-bottom:4px}
-.type-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--text)}
+.type-name{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--label);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.type-val{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--text)}
 .type-sub{font-size:10px;color:var(--muted);margin-top:2px}
 /* HEALTH SCORE */
 .health-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden;margin-top:4px}
@@ -119,11 +119,63 @@ tr:hover td{background:rgba(255,255,255,.02)}
 /* FILTER CHIP */
 .filter-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .chip{padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:var(--surface2);color:var(--label);font-size:10px;font-weight:500;cursor:pointer;transition:all .2s}
-.chip:hover,.chip.active{border-color:var(--accent);color:var(--accent);background:rgba(0,229,160,.08)}
+.chip:hover,.chip.active{border-color:var(--accent);color:var(--accent);background:rgba(255,80,0,.08)}
 .no-data{text-align:center;padding:36px;color:var(--muted);font-size:12px}
 .pagination{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:12px}
 .page-btn{background:var(--surface2);border:1px solid var(--border);color:var(--label);padding:4px 10px;border-radius:5px;cursor:pointer;font-size:11px;transition:all .2s}
 .page-btn:hover,.page-btn.active{border-color:var(--accent);color:var(--accent)}
+.stat-card.clickable{cursor:pointer;transition:all .2s}
+.stat-card.clickable:hover{border-color:rgba(255,255,255,.15);transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.35)}
+.stat-card.clickable::after{content:'â†—';position:absolute;top:10px;right:12px;font-size:9px;color:var(--muted);opacity:0;transition:opacity .2s}
+.stat-card.clickable:hover::after{opacity:1}
+#drillOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;backdrop-filter:blur(2px)}
+#drillPanel{position:fixed;top:0;right:0;bottom:0;width:520px;max-width:95vw;background:var(--surface);border-left:1px solid var(--border);z-index:201;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease}
+#drillPanel.open{transform:translateX(0)}
+.drill-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border);flex-shrink:0}
+.drill-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--text)}
+.drill-close{background:none;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px}
+.drill-close:hover{border-color:var(--accent);color:var(--accent)}
+.drill-export{background:rgba(255,80,0,.1);border:1px solid rgba(255,80,0,.3);color:var(--accent);border-radius:6px;padding:4px 11px;cursor:pointer;font-size:11px;font-weight:500;letter-spacing:.03em;transition:all .2s}
+.drill-export:hover{background:rgba(255,80,0,.22);border-color:var(--accent)}
+.drill-body{flex:1;overflow-y:auto;padding:16px 20px}
+.drill-body::-webkit-scrollbar{width:4px}
+.drill-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.drill-kv{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid rgba(40,40,45,.5)}
+.drill-kv:last-child{border-bottom:none}
+.drill-k{font-size:11px;color:var(--label);overflow:hidden;text-overflow:ellipsis;max-width:300px;flex:1}
+.drill-v{font-family:'DM Mono',monospace;font-size:12px;color:var(--text);font-weight:500;flex-shrink:0;margin-left:12px;text-align:right}
+.drill-section{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+/* â”€â”€ THEME TOGGLE â”€â”€ */
+.theme-toggle-wrap{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.bulb{font-size:17px;line-height:1;cursor:default;transition:all .35s;filter:grayscale(1) brightness(.45);user-select:none}
+html[data-theme="light"] .bulb{filter:none;text-shadow:0 0 10px #ffb347}
+.toggle-track{width:40px;height:22px;background:var(--surface2);border:1px solid var(--border);border-radius:11px;position:relative;cursor:pointer;transition:background .3s,border-color .3s;flex-shrink:0}
+html[data-theme="light"] .toggle-track{background:var(--accent);border-color:var(--accent)}
+.toggle-thumb{width:16px;height:16px;background:#fff;border-radius:50%;position:absolute;top:2px;left:2px;transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:0 1px 5px rgba(0,0,0,.4)}
+html[data-theme="light"] .toggle-thumb{transform:translateX(18px)}
+/* â”€â”€ LIGHT MODE â”€â”€ */
+html[data-theme="light"]{--bg:#f4f5f7;--surface:#ffffff;--surface2:#eceef1;--border:#d0d2d8;--accent:#ff5000;--accent2:#d97706;--danger:#c62828;--info:#4060d4;--purple:#3d5199;--text:#1a1a1a;--muted:#717180;--label:#4d4d4d}
+html[data-theme="light"] tr:hover td{background:rgba(0,0,0,.025)}
+html[data-theme="light"] .tab{color:#71717a}
+html[data-theme="light"] .tab:hover{color:var(--text)}
+html[data-theme="light"] .tab.active{background:var(--bg);color:var(--accent);border-color:var(--border);border-bottom-color:var(--bg)}
+html[data-theme="light"] .stat-card{box-shadow:0 1px 5px rgba(0,0,0,.08)}
+html[data-theme="light"] .card{box-shadow:0 1px 5px rgba(0,0,0,.06)}
+html[data-theme="light"] .table-wrap{box-shadow:0 1px 5px rgba(0,0,0,.06)}
+html[data-theme="light"] #drillPanel{box-shadow:-6px 0 30px rgba(0,0,0,.14)}
+html[data-theme="light"] .overdue-item{background:#fdf2f0}
+html[data-theme="light"] .type-card{background:#f0f2f5}
+html[data-theme="light"] .search-bar{background:var(--surface);color:var(--text)}
+html[data-theme="light"] .search-bar::placeholder{color:var(--muted)}
+html[data-theme="light"] .range-btn{background:var(--surface);color:var(--label)}
+html[data-theme="light"] .chip{background:var(--surface);color:var(--label)}
+html[data-theme="light"] .page-btn{background:var(--surface);color:var(--label)}
+html[data-theme="light"] .custom-dates input[type=month]{background:var(--surface);color:var(--text)}
+html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--border)}
+.drill-back{background:none;border:none;color:var(--muted);cursor:pointer;font-size:12px;padding:4px 6px 4px 0;transition:color .2s;white-space:nowrap;flex-shrink:0}
+.drill-back:hover{color:var(--accent)}
+.drill-clickable{cursor:pointer;text-decoration:underline dotted;transition:opacity .15s}
+.drill-clickable:hover{opacity:.65}
 </style>
 </head>
 <body>
@@ -150,6 +202,13 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <input type="month" id="customTo" value="2026-04">
     <button class="apply-btn" onclick="applyCustom()">Apply</button>
   </div>
+  <div class="filter-divider"></div>
+  <div class="theme-toggle-wrap">
+    <span id="bulbIcon" class="bulb">&#128161;</span>
+    <div id="themeToggle" class="toggle-track" onclick="toggleTheme()" title="Toggle light / dark mode">
+      <div class="toggle-thumb"></div>
+    </div>
+  </div>
 </div>
 <div class="tabs">
   <div class="tab active" onclick="showTab('overview')">Overview</div>
@@ -159,6 +218,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
   <div class="tab" onclick="showTab('health')">Cadence Health</div>
   <div class="tab" onclick="showTab('members')">Active Members</div>
   <div class="tab" onclick="showTab('trends')">Trends</div>
+  <div class="tab" onclick="showTab('unqleads')">Unql. Leads</div>
 </div>
 <div class="content">
 
@@ -169,7 +229,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="card">
       <div class="card-title">Touchpoint Status Breakdown</div>
       <div class="donut-row">
-        <svg width="100" height="100" id="donutSvg" viewBox="0 0 120 120"></svg>
+        <svg width="120" height="120" id="donutSvg" viewBox="0 0 120 120"></svg>
         <div class="donut-legend" id="donutLegend"></div>
       </div>
     </div>
@@ -287,8 +347,38 @@ tr:hover td{background:rgba(255,255,255,.02)}
 </div>
 
 
+<!-- UNQUALIFIED LEADS -->
+<div id="panel-unqleads" class="panel">
+  <div class="stats-row" id="uqlStats"></div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Unqualified Leads by Rep</div>
+      <div class="section-header"><span class="section-title">Rep Detail</span><span class="section-count" id="uqlRepCount"></span></div>
+      <input class="search-bar" id="uqlRepSearch" placeholder="Search rep..." oninput="uqlRepPage=1;renderUqlRepTable()">
+      <div class="table-wrap"><table><thead><tr>
+        <th onclick="sortUqlRep('name')">Rep</th>
+        <th onclick="sortUqlRep('count')">Unqualified Leads</th>
+        <th>% of Total</th>
+      </tr></thead><tbody id="uqlRepBody"></tbody></table></div>
+      <div class="pagination" id="uqlRepPag"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Touchpoint Outcomes</div>
+      <div class="section-header"><span class="section-title">Outcome Detail</span><span class="section-count" id="uqlOutcomeCount"></span></div>
+      <input class="search-bar" id="uqlOutcomeSearch" placeholder="Search cadence or outcome..." oninput="uqlOutcomePage=1;renderUqlOutcomeTable()">
+      <div class="table-wrap"><table><thead><tr>
+        <th onclick="sortUqlOutcome('name')">Cadence</th>
+        <th onclick="sortUqlOutcome('outcome')">Outcome</th>
+        <th onclick="sortUqlOutcome('count')">Count</th>
+        <th>% of Total</th>
+      </tr></thead><tbody id="uqlOutcomeBody"></tbody></table></div>
+      <div class="pagination" id="uqlOutcomePag"></div>
+    </div>
+  </div>
+</div>
+
 <!-- ACTIVE MEMBERS (injected) -->
-<div id="panel-members" class="panel" style="display:none">
+<div id="panel-members" class="panel">
   <div class="stats-row" id="memStats"></div>
   <div class="section-header">
     <span class="section-title">Active Members by Cadence</span>
@@ -309,6 +399,20 @@ tr:hover td{background:rgba(255,255,255,.02)}
 </div>
 
 </div><!-- end content -->
+<div id="drillOverlay" onclick="closeDrill()"></div>
+<div id="drillPanel">
+  <div class="drill-header">
+    <div style="display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden">
+      <button class="drill-back" id="drillBackBtn" onclick="backFromSubDrill()" style="display:none">â† Back</button>
+      <span class="drill-title" id="drillTitle" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Detail</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-shrink:0">
+      <button class="drill-export" onclick="exportDrillCSV()">â†“ Export CSV</button>
+      <button class="drill-close" onclick="closeDrill()">âœ• Close</button>
+    </div>
+  </div>
+  <div class="drill-body" id="drillBody"></div>
+</div>
 
 <script>
 
@@ -322,6 +426,29 @@ const MEMBER_DATA = [["SDR - Facebook Form Fill Leads", 160, 3401, 2843, 8094, 1
 
 // -- ACTIVE MEMBERS ------------------------------------------------------------
 // MEMBER_DATA format: [cadence, notStarted, inProgress, completed, removed, total, active]
+const UQL_REP_DATA=[];
+const UQL_OUTCOME_DATA=[];
+async function loadData(){
+  function membersFromJSON(d){
+    const m={};
+    for(const r of d){const n=r.Name;if(!m[n])m[n]={ns:0,ip:0,comp:0,rem:0};const s=r.DS_Packages__Status__c,c=r.cnt;
+      if(s==='Not Started')m[n].ns+=c;else if(s==='In Progress')m[n].ip+=c;else if(s==='Completed')m[n].comp+=c;else if(s==='Removed')m[n].rem+=c;}
+    return Object.entries(m).map(([name,v])=>{const t=v.ns+v.ip+v.comp+v.rem;return[name,v.ns,v.ip,v.comp,v.rem,t,v.ip];});
+  }
+  const jobs=[
+    ['data/touchpoints.json',       d=>{TP_DATA.length=0;     TP_DATA.push(...d.map(r=>[r.Name,r.DS_Packages__Status__c,r.mo,r.yr,r.cnt]));}],
+    ['data/dropoff.json',           d=>{DROP_DATA.length=0;   DROP_DATA.push(...d.map(r=>[r.Name,r.DS_Packages__Removed_Reason__c||'',r.mo,r.yr,r.cnt]));}],
+    ['data/steptypes.json',         d=>{B_DATA.length=0;      B_DATA.push(...d.map(r=>[r.Name,r.StepType,r.cnt]));}],
+    ['data/steptypes_detail.json',  d=>{C_DATA.length=0;      C_DATA.push(...d.map(r=>[r.Name,r.DS_Packages__Status__c,r.StepType,r.cnt]));}],
+    ['data/members.json',           d=>{const rows=membersFromJSON(d);MEMBER_DATA.length=0;MEMBER_DATA.push(...rows);}],
+    ['data/overdue.json',           d=>{OVERDUE_RAW.length=0; OVERDUE_RAW.push(...d.map(r=>[r.CadenceName,r.RepName,r.cnt]));}],
+    ['data/unqualified_reps.json',  d=>{UQL_REP_DATA.length=0;UQL_REP_DATA.push(...d.map(r=>[r.Name,r.LeadCount]));}],
+    ['data/unqualified_outcomes.json',d=>{UQL_OUTCOME_DATA.length=0;UQL_OUTCOME_DATA.push(...d.map(r=>[r.Name,r.DS_Packages__Outcome__c,r.cnt]));}],
+  ];
+  await Promise.allSettled(jobs.map(([url,apply])=>
+    fetch(url).then(r=>r.ok?r.json():Promise.reject(r.status)).then(apply)
+  ));
+}
 let memPage=1, memSort={col:'active',dir:-1};
 function sortMem(col){if(memSort.col===col)memSort.dir*=-1;else{memSort.col=col;memSort.dir=-1;}memPage=1;renderMemberTable();}
 function renderMemberTable(){
@@ -338,10 +465,10 @@ function renderMemberTable(){
   const totalComp=rows.reduce((s,r)=>s+r.completed,0);
   document.getElementById('memCount').textContent=rows.length+' cadences';
   document.getElementById('memStats').innerHTML=`
-    <div class="stat-card green"><div class="stat-label">Active Members</div><div class="stat-value">\${fmt(totalActive)}</div><div class="stat-sub">In Progress + Not Started</div></div>
-    <div class="stat-card blue"><div class="stat-label">Total Ever Enrolled</div><div class="stat-value">\${fmt(totalAll)}</div></div>
-    <div class="stat-card green"><div class="stat-label">Completion Rate</div><div class="stat-value">\${pct(totalComp,totalAll)}%</div><div class="stat-sub">Across all cadences</div></div>
-    <div class="stat-card red"><div class="stat-label">Total Removed</div><div class="stat-value">\${fmt(rows.reduce((s,r)=>s+r.removed,0))}</div></div>
+    <div class="stat-card green"><div class="stat-label">Active Members</div><div class="stat-value">${fmt(totalActive)}</div><div class="stat-sub">In Progress + Not Started</div></div>
+    <div class="stat-card blue"><div class="stat-label">Total Ever Enrolled</div><div class="stat-value">${fmt(totalAll)}</div></div>
+    <div class="stat-card green"><div class="stat-label">Completion Rate</div><div class="stat-value">${pct(totalComp,totalAll)}%</div><div class="stat-sub">Across all cadences</div></div>
+    <div class="stat-card red"><div class="stat-label">Total Removed</div><div class="stat-value">${fmt(rows.reduce((s,r)=>s+r.removed,0))}</div></div>
   `;
   const tp=Math.ceil(rows.length/PAGE),pg=rows.slice((memPage-1)*PAGE,memPage*PAGE);
   const maxActive=Math.max(...rows.map(r=>r.active),1);
@@ -349,21 +476,21 @@ function renderMemberTable(){
     const arc=r.activeRate>=30?'var(--accent)':r.activeRate>=10?'var(--accent2)':'var(--muted)';
     const crc=r.completionRate>=50?'var(--accent)':r.completionRate>=25?'var(--accent2)':'var(--danger)';
     return `<tr>
-    <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="\${r.name}">\${r.name}</td>
+    <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.name}">${r.name}</td>
     <td>
       <div style="display:flex;align-items:center;gap:8px">
-        <span style="font-family:'DM Mono',monospace;font-weight:600;color:var(--accent)">\${fmt(r.active)}</span>
-        <div class="member-bar" style="width:60px"><div class="member-fill" style="width:\${(r.active/maxActive*100).toFixed(0)}%"></div></div>
+        <span style="font-family:'DM Mono',monospace;font-weight:600;color:var(--accent)">${fmt(r.active)}</span>
+        <div class="member-bar" style="width:60px"><div class="member-fill" style="width:${(r.active/maxActive*100).toFixed(0)}%"></div></div>
       </div>
     </td>
-    <td style="font-family:'DM Mono',monospace;color:var(--muted)">\${fmt(r.notStarted)}</td>
-    <td><span class="pill pill-green">\${fmt(r.completed)}</span></td>
-    <td><span class="pill pill-gray">\${fmt(r.removed)}</span></td>
-    <td style="font-family:'DM Mono',monospace">\${fmt(r.total)}</td>
-    <td><span style="color:\${arc};font-family:'DM Mono',monospace">\${r.activeRate}%</span></td>
-    <td><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:\${r.completionRate}%;background:\${crc}"></div></div><span class="bar-num" style="color:\${crc}">\${r.completionRate}%</span></div></td>
+    <td style="font-family:'DM Mono',monospace;color:var(--muted)">${fmt(r.notStarted)}</td>
+    <td><span class="pill pill-green">${fmt(r.completed)}</span></td>
+    <td><span class="pill pill-gray">${fmt(r.removed)}</span></td>
+    <td style="font-family:'DM Mono',monospace">${fmt(r.total)}</td>
+    <td><span style="color:${arc};font-family:'DM Mono',monospace">${r.activeRate}%</span></td>
+    <td><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${r.completionRate}%;background:${crc}"></div></div><span class="bar-num" style="color:${crc}">${r.completionRate}%</span></div></td>
     </tr>`;
-  }).join('')+'<tr><td colspan="8" style="padding:8px 13px;background:rgba(0,229,160,.03);font-size:11px;color:var(--muted)">Note: Member data is a live snapshot - not date-filtered</td></tr>'
+  }).join('')+'<tr><td colspan="8" style="padding:8px 13px;background:rgba(255,80,0,.03);font-size:11px;color:var(--muted)">Note: Member data is a live snapshot - not date-filtered</td></tr>'
   :'<tr><td colspan="8" class="no-data">No data</td></tr>';
   renderPagination('memPag',memPage,tp,p=>{memPage=p;renderMemberTable();});
 }
@@ -401,7 +528,7 @@ function updatePill(){
   const el=document.getElementById('activePill');
   if(!filterFrom&&!filterTo){el.textContent='All data';return;}
   const mn=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  el.textContent=`${filterFrom?mn[filterFrom.mo]+' '+filterFrom.yr:'All'} → ${filterTo?mn[filterTo.mo]+' '+filterTo.yr:'Now'}`;
+  el.innerHTML=`${filterFrom?mn[filterFrom.mo]+" "+filterFrom.yr:"All"} &rarr; ${filterTo?mn[filterTo.mo]+" "+filterTo.yr:"Now"}`;
 }
 
 // -- DATA HELPERS --------------------------------------------------------------
@@ -455,10 +582,11 @@ function classifyReason(r){
 }
 
 // Step type display helpers
-const TYPE_COLORS={'Call':'#4fa8ff','Email':'#00e5a0','SMS':'#f7b731','Other':'#a78bfa','Appointment':'#ff4f6d','AppointmentConfirmation':'#ff9f43'};
-const TYPE_ICONS={'Call':'📞','Email':'✉️','SMS':'💬','Other':'⚡','Appointment':'📅','AppointmentConfirmation':'✅'};
-function typeColor(t){return TYPE_COLORS[t]||'#5a6070';}
-function typeIcon(t){return TYPE_ICONS[t]||'•';}
+const TYPE_COLORS={'Call':'#5378fc','Email':'#ff5000','SMS':'#ffb347','Other':'#808088','Appointment':'#e53935','AppointmentConfirmation':'#3d5199'};
+const TYPE_ICONS={'Call':'&#128222;','Email':'&#9993;&#65039;','SMS':'&#128172;','Other':'&#9889;','Appointment':'&#128197;','AppointmentConfirmation':'&#9989;','Custom':'&#9881;&#65039;'};
+function typeColor(t){return TYPE_COLORS[t]||'#5c5c64';}
+function typeIcon(t){return TYPE_ICONS[t]||'&#8226;';}
+const TYPE_NAMES={'AppointmentConfirmation':'Appt. Confirm','Appointment':'Appt'};
 
 function drawDonut(data,total,svgId,legendId){
   const cx=60,cy=60,r=44,sw=13;
@@ -470,7 +598,9 @@ function drawDonut(data,total,svgId,legendId){
     paths+=`<path d="M${x1.toFixed(1)},${y1.toFixed(1)} A${r},${r} 0 ${a>Math.PI?1:0},1 ${x2.toFixed(1)},${y2.toFixed(1)}" stroke="${color}" stroke-width="${sw}" fill="none"/>`;
     start+=a;
   }
-  document.getElementById(svgId).innerHTML=paths+`<text x="60" y="57" text-anchor="middle" font-family="DM Mono" font-size="12" font-weight="500" fill="#e8eaf0">${fmt(total)}</text><text x="60" y="71" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#5a6070">TOTAL</text>`;
+  const _tc=getComputedStyle(document.documentElement).getPropertyValue('--text').trim()||'#f0f0f2';
+  const _lc=getComputedStyle(document.documentElement).getPropertyValue('--label').trim()||'#808088';
+  document.getElementById(svgId).innerHTML=paths+`<text x="60" y="57" text-anchor="middle" font-family="DM Mono" font-size="12" font-weight="500" fill="${_tc}">${fmt(total)}</text><text x="60" y="71" text-anchor="middle" font-family="DM Sans" font-size="9" fill="${_lc}">TOTAL</text>`;
   if(legendId)document.getElementById(legendId).innerHTML=data.map(d=>`<div class="legend-item"><div class="legend-dot" style="background:${d.color}"></div><span class="legend-label">${d.label}</span><span class="legend-val">${pct(d.val,total)}%</span></div>`).join('');
 }
 function drawBarChart(elId,monthly,color){
@@ -489,12 +619,12 @@ function renderPagination(id,cur,total,cb){
   const el=document.getElementById(id);
   if(total<=1){el.innerHTML='';return;}
   let html='';
-  if(cur>1)html+=`<button class="page-btn" onclick="(${cb})(${cur-1})">‹</button>`;
+  if(cur>1)html+=`<button class="page-btn" onclick="(${cb})(${cur-1})">&#8249;</button>`;
   const s=Math.max(1,cur-2),e=Math.min(total,cur+2);
-  if(s>1)html+=`<button class="page-btn" onclick="(${cb})(1)">1</button>${s>2?'…':''}`;
+  if(s>1)html+=`<button class="page-btn" onclick="(${cb})(1)">1</button>${s>2?'&#8230;':''}`;
   for(let i=s;i<=e;i++)html+=`<button class="page-btn${i===cur?' active':''}" onclick="(${cb})(${i})">${i}</button>`;
-  if(e<total)html+=`${e<total-1?'…':''}<button class="page-btn" onclick="(${cb})(${total})">${total}</button>`;
-  if(cur<total)html+=`<button class="page-btn" onclick="(${cb})(${cur+1})">›</button>`;
+  if(e<total)html+=`${e<total-1?'&#8230;':''}<button class="page-btn" onclick="(${cb})(${total})">${total}</button>`;
+  if(cur<total)html+=`<button class="page-btn" onclick="(${cb})(${cur+1})">&#8250;</button>`;
   el.innerHTML=html;
 }
 
@@ -514,24 +644,24 @@ function renderOverview(){
 
     const totalActMem=MEMBER_DATA.reduce((s,[,,,,,,a])=>s+a,0);
   document.getElementById('ovStats').innerHTML=`
-    <div class="stat-card blue"><div class="stat-label">Active Cadences</div><div class="stat-value">${Object.keys(tpAgg).length}</div><div class="stat-sub">With TP activity</div></div>
-    <div class="stat-card blue"><div class="stat-label">Total Touchpoints</div><div class="stat-value">${fmt(totalTP)}</div><div class="stat-sub">Selected range</div></div>
-    <div class="stat-card green"><div class="stat-label">Completed TPs</div><div class="stat-value">${fmt(totalC)}</div><div class="stat-sub">${pct(totalC,totalTP)}% rate</div></div>
-    <div class="stat-card yellow"><div class="stat-label">Open TPs</div><div class="stat-value">${fmt(totalO)}</div><div class="stat-sub">${pct(totalO,totalTP)}% pending</div></div>
-    <div class="stat-card red"><div class="stat-label">Drop-offs</div><div class="stat-value">${fmt(totalDrop)}</div><div class="stat-sub">Total removals</div></div>
-    <div class="stat-card purple"><div class="stat-label">Active in Cadence</div><div class="stat-value">${fmt(totalActMem)}</div><div class="stat-sub">Live member snapshot</div></div>
-    <div class="stat-card red"><div class="stat-label">Currently Overdue</div><div class="stat-value">${fmt(OVERDUE_RAW.reduce((s,[,,n])=>s+n,0))}</div><div class="stat-sub">Live snapshot</div></div>
+    <div class="stat-card blue clickable" onclick="openDrill('activeCadences')"><div class="stat-label">Active Cadences</div><div class="stat-value">${Object.keys(tpAgg).length}</div><div class="stat-sub">With TP activity</div></div>
+    <div class="stat-card blue clickable" onclick="openDrill('totalTP')"><div class="stat-label">Total Touchpoints</div><div class="stat-value">${fmt(totalTP)}</div><div class="stat-sub">Selected range</div></div>
+    <div class="stat-card green clickable" onclick="openDrill('completedTP')"><div class="stat-label">Completed TPs</div><div class="stat-value">${fmt(totalC)}</div><div class="stat-sub">${pct(totalC,totalTP)}% rate</div></div>
+    <div class="stat-card yellow clickable" onclick="openDrill('openTP')"><div class="stat-label">Open TPs</div><div class="stat-value">${fmt(totalO)}</div><div class="stat-sub">${pct(totalO,totalTP)}% pending</div></div>
+    <div class="stat-card red clickable" onclick="openDrill('dropoffs')"><div class="stat-label">Drop-offs</div><div class="stat-value">${fmt(totalDrop)}</div><div class="stat-sub">Total removals</div></div>
+    <div class="stat-card purple clickable" onclick="openDrill('activeInCadence')"><div class="stat-label">Active in Cadence</div><div class="stat-value">${fmt(totalActMem)}</div><div class="stat-sub">Live member snapshot</div></div>
+    <div class="stat-card red clickable" onclick="openDrill('currentlyOverdue')"><div class="stat-label">Currently Overdue</div><div class="stat-value">${fmt(OVERDUE_RAW.reduce((s,[,,n])=>s+n,0))}</div><div class="stat-sub">Live snapshot</div></div>
   `;
-  drawDonut([{label:'Completed',val:totalC,color:'#00e5a0'},{label:'Open',val:totalO,color:'#4fa8ff'},{label:'Skipped',val:totalSk,color:'#f7b731'},{label:'Removed',val:totalRm,color:'#ff4f6d'}],totalTP,'donutSvg','donutLegend');
+  drawDonut([{label:'Completed',val:totalC,color:'#ff5000'},{label:'Open',val:totalO,color:'#5378fc'},{label:'Skipped',val:totalSk,color:'#ffb347'},{label:'Removed',val:totalRm,color:'#e53935'}],totalTP,'donutSvg','donutLegend');
 
   // Open by step type (B_DATA - static, not date filtered as no date field)
   const openByType={};
   for(const[,stype,cnt]of B_DATA)openByType[stype]=(openByType[stype]||0)+cnt;
   const totalOpen=Object.values(openByType).reduce((s,v)=>s+v,0);
   document.getElementById('openByType').innerHTML=Object.entries(openByType).sort((a,b)=>b[1]-a[1]).map(([t,v])=>`
-    <div class="type-card">
+    <div class="type-card clickable" onclick="openDrill('stepType:'+t)">
       <div class="type-icon">${typeIcon(t)}</div>
-      <div class="type-name">${t}</div>
+      <div class="type-name">${TYPE_NAMES[t]||t}</div>
       <div class="type-val" style="color:${typeColor(t)}">${fmt(v)}</div>
       <div class="type-sub">${pct(v,totalOpen)}% of open</div>
     </div>`).join('');
@@ -649,7 +779,7 @@ function renderStepTypeTable(){
   document.getElementById('stCount').textContent=rows.length+' cadences';
   document.getElementById('stStats').innerHTML=`
     <div class="stat-card blue"><div class="stat-label">Total Open TPs</div><div class="stat-value">${fmt(totalOpen)}</div></div>
-    <div class="stat-card blue"><div class="stat-label">Open Calls</div><div class="stat-value" style="color:#4fa8ff">${fmt(rows.reduce((s,r)=>s+r.Call,0))}</div></div>
+    <div class="stat-card blue"><div class="stat-label">Open Calls</div><div class="stat-value" style="color:#5378fc">${fmt(rows.reduce((s,r)=>s+r.Call,0))}</div></div>
     <div class="stat-card green"><div class="stat-label">Open Emails</div><div class="stat-value">${fmt(rows.reduce((s,r)=>s+r.Email,0))}</div></div>
     <div class="stat-card yellow"><div class="stat-label">Open SMS</div><div class="stat-value">${fmt(rows.reduce((s,r)=>s+r.SMS,0))}</div></div>`;
 
@@ -672,7 +802,7 @@ function renderStepTypeTable(){
   document.getElementById('stBody').innerHTML=pg.length?pg.map(r=>`<tr>
     <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.name}">${r.name}</td>
     <td><strong style="font-family:'DM Mono',monospace">${fmt(r.total)}</strong></td>
-    <td>${r.Call>0?`<span style="color:#4fa8ff;font-family:'DM Mono',monospace">${r.Call}</span>`:'-'}</td>
+    <td>${r.Call>0?`<span style="color:#5378fc;font-family:'DM Mono',monospace">${r.Call}</span>`:'-'}</td>
     <td>${r.Email>0?`<span style="color:var(--accent);font-family:'DM Mono',monospace">${r.Email}</span>`:'-'}</td>
     <td>${r.SMS>0?`<span style="color:var(--accent2);font-family:'DM Mono',monospace">${r.SMS}</span>`:'-'}</td>
     <td>${r.Other>0?`<span style="color:var(--purple);font-family:'DM Mono',monospace">${r.Other}</span>`:'-'}</td>
@@ -712,7 +842,7 @@ function renderHealthTable(){
   document.getElementById('chBody').innerHTML=pg.length?pg.map(r=>{
     const rc=r.rate>=70?'var(--accent)':r.rate>=40?'var(--accent2)':'var(--danger)';
     const rrc=r.removeRate>=40?'var(--danger)':r.removeRate>=20?'var(--accent2)':'var(--muted)';
-    const health=r.rate>=70&&r.removeRate<20?'🟢 Good':r.rate>=40&&r.removeRate<40?'🟡 Review':'🔴 At Risk';
+    const health=r.rate>=70&&r.removeRate<20?'&#128994; Good':r.rate>=40&&r.removeRate<40?'&#128993; Review':'&#128308; At Risk';
     return `<tr>
     <td style="max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.name}">${r.name}</td>
     <td style="font-family:'DM Mono',monospace">${fmt(r.total)}</td>
@@ -731,8 +861,8 @@ function renderTrends(){
   const tpRows=getFilteredTP(),dRows=getFilteredDrop();
   const mtp=monthlyTP(tpRows),mdrop=monthlyDrop(dRows);
   const allKeys=[...new Set([...Object.keys(mtp),...Object.keys(mdrop)])].sort();
-  drawBarChart('tpMonthChart',Object.fromEntries(allKeys.map(k=>[k,(mtp[k]?.Completed||0)])),'#00e5a0');
-  drawBarChart('dropMonthChart',Object.fromEntries(allKeys.map(k=>[k,mdrop[k]||0])),'#ff4f6d');
+  drawBarChart('tpMonthChart',Object.fromEntries(allKeys.map(k=>[k,(mtp[k]?.Completed||0)])),'#ff5000');
+  drawBarChart('dropMonthChart',Object.fromEntries(allKeys.map(k=>[k,mdrop[k]||0])),'#e53935');
   const mn=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const totalDrop=dRows.reduce((s,r)=>s+r[4],0);
   const totalC=tpRows.filter(r=>r[1]==='Completed').reduce((s,r)=>s+r[4],0);
@@ -757,16 +887,261 @@ function renderTrends(){
 // -- INIT ----------------------------------------------------------------------
 function rebuildAll(){
   renderOverview();renderMemberTable();renderTPTable();renderDropTable();
-  renderStepTypeTable();renderHealthTable();renderTrends();
+  renderStepTypeTable();renderHealthTable();renderTrends();renderUnqLeads();
 }
 function showTab(name){
-  const tabs=['overview','members','touchpoints','dropoff','steptypes','health','trends'];
+  const tabs=['overview','touchpoints','dropoff','steptypes','health','members','trends','unqleads'];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===name));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
 }
+// â”€â”€ THEME TOGGLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function toggleTheme(){
+  const isLight=document.documentElement.getAttribute('data-theme')==='light';
+  document.documentElement.setAttribute('data-theme',isLight?'dark':'light');
+  renderOverview();
+}
+
+// â”€â”€ UNQUALIFIED LEADS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+let uqlRepPage=1,uqlRepSort={col:'count',dir:-1};
+let uqlOutcomePage=1,uqlOutcomeSort={col:'count',dir:-1};
+function getFilteredUqlRep(){return UQL_REP_DATA.filter(([,,mo,yr])=>mo==null||inRange(mo,yr));}
+function getFilteredUqlOutcome(){return UQL_OUTCOME_DATA.filter(([,,,mo,yr])=>mo==null||inRange(mo,yr));}
+function sortUqlRep(col){if(uqlRepSort.col===col)uqlRepSort.dir*=-1;else{uqlRepSort.col=col;uqlRepSort.dir=-1;}uqlRepPage=1;renderUqlRepTable();}
+function renderUqlRepTable(){
+  const q=(document.getElementById('uqlRepSearch')||{}).value||'';
+  const m={};
+  for(const[name,cnt] of getFilteredUqlRep())m[name]=(m[name]||0)+cnt;
+  let arr=Object.entries(m).map(([name,count])=>({name,count})).filter(r=>!q||r.name.toLowerCase().includes(q.toLowerCase()));
+  const{col:c,dir:d}=uqlRepSort;
+  arr.sort((a,b)=>c==='name'?a.name.localeCompare(b.name)*d:(b.count-a.count)*d);
+  const total=arr.reduce((s,r)=>s+r.count,0);
+  document.getElementById('uqlRepCount').textContent=arr.length+' reps';
+  const tp=Math.ceil(arr.length/PAGE)||1;
+  const slice=arr.slice((uqlRepPage-1)*PAGE,uqlRepPage*PAGE);
+  document.getElementById('uqlRepBody').innerHTML=slice.length?slice.map(r=>`<tr>
+    <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.name}">${r.name}</td>
+    <td style="font-family:'DM Mono',monospace">${fmt(r.count)}</td>
+    <td><span style="font-family:'DM Mono',monospace;color:var(--muted)">${pct(r.count,total)}%</span></td></tr>`).join(''):'<tr><td colspan="3" class="no-data">No data for selected range</td></tr>';
+  renderPagination('uqlRepPag',uqlRepPage,tp,p=>{uqlRepPage=p;renderUqlRepTable();});
+}
+function sortUqlOutcome(col){if(uqlOutcomeSort.col===col)uqlOutcomeSort.dir*=-1;else{uqlOutcomeSort.col=col;uqlOutcomeSort.dir=-1;}uqlOutcomePage=1;renderUqlOutcomeTable();}
+function renderUqlOutcomeTable(){
+  const q=(document.getElementById('uqlOutcomeSearch')||{}).value||'';
+  const m={};
+  for(const[name,outcome,cnt] of getFilteredUqlOutcome()){const k=name+'|||'+outcome;if(!m[k])m[k]={name,outcome,count:0};m[k].count+=cnt;}
+  let arr=Object.values(m).filter(r=>!q||r.name.toLowerCase().includes(q.toLowerCase())||r.outcome.toLowerCase().includes(q.toLowerCase()));
+  const{col:c,dir:d}=uqlOutcomeSort;
+  arr.sort((a,b)=>c==='name'?a.name.localeCompare(b.name)*d:c==='outcome'?a.outcome.localeCompare(b.outcome)*d:(b.count-a.count)*d);
+  const total=arr.reduce((s,r)=>s+r.count,0);
+  document.getElementById('uqlOutcomeCount').textContent=arr.length+' combinations';
+  const tp=Math.ceil(arr.length/PAGE)||1;
+  const slice=arr.slice((uqlOutcomePage-1)*PAGE,uqlOutcomePage*PAGE);
+  document.getElementById('uqlOutcomeBody').innerHTML=slice.length?slice.map(r=>`<tr>
+    <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.name}">${r.name}</td>
+    <td><span class="pill pill-blue">${r.outcome||'—'}</span></td>
+    <td style="font-family:'DM Mono',monospace">${fmt(r.count)}</td>
+    <td><span style="font-family:'DM Mono',monospace;color:var(--muted)">${pct(r.count,total)}%</span></td></tr>`).join(''):'<tr><td colspan="4" class="no-data">No data for selected range</td></tr>';
+  renderPagination('uqlOutcomePag',uqlOutcomePage,tp,p=>{uqlOutcomePage=p;renderUqlOutcomeTable();});
+}
+function renderUnqLeads(){
+  const repRows=getFilteredUqlRep(),outRows=getFilteredUqlOutcome();
+  const totalLeads=repRows.reduce((s,[,cnt])=>s+cnt,0);
+  const uniqueReps=new Set(repRows.map(([r])=>r)).size;
+  const totalOutcomes=outRows.reduce((s,[,,cnt])=>s+cnt,0);
+  const uniqueOutcomes=new Set(outRows.map(([,o])=>o)).size;
+  document.getElementById('uqlStats').innerHTML=`
+    <div class="stat-card red"><div class="stat-label">Unqualified Leads</div><div class="stat-value">${fmt(totalLeads)}</div><div class="stat-sub">Selected range</div></div>
+    <div class="stat-card blue"><div class="stat-label">Reps w/ Unql. Leads</div><div class="stat-value">${fmt(uniqueReps)}</div></div>
+    <div class="stat-card yellow"><div class="stat-label">TP Outcomes Logged</div><div class="stat-value">${fmt(totalOutcomes)}</div><div class="stat-sub">Selected range</div></div>
+    <div class="stat-card purple"><div class="stat-label">Unique Outcomes</div><div class="stat-value">${fmt(uniqueOutcomes)}</div></div>`;
+  renderUqlRepTable();
+  renderUqlOutcomeTable();
+}
+
+// â”€â”€ DRILL-DOWN PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+let currentDrillKey='';
+let drillHistory=[];
+let _sd={},_sdIdx=0;
+function openDrill(key){
+  currentDrillKey=key;
+  const tpRows=getFilteredTP(),dRows=getFilteredDrop();
+  const tpAgg=aggregateTP(tpRows);
+  let title='',html='';
+  if(key==='activeCadences'){
+    title='Active Cadences';
+    const rows=Object.entries(tpAgg).sort((a,b)=>b[1].total-a[1].total);
+    html='<div class="drill-section">All cadences with TP activity in selected range</div>'+
+      rows.map(([n,d])=>`<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v">${fmt(d.total)} TPs</span></div>`).join('');
+  }else if(key==='totalTP'){
+    title='Total Touchpoints — by Cadence';
+    const rows=Object.entries(tpAgg).sort((a,b)=>b[1].total-a[1].total).slice(0,30);
+    html='<div class="drill-section">Top 30 cadences by TP count</div>'+
+      rows.map(([n,d])=>`<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v">${fmt(d.total)}</span></div>`).join('');
+  }else if(key==='completedTP'){
+    title='Completed TPs — by Cadence';
+    const rows=Object.entries(tpAgg).sort((a,b)=>b[1].Completed-a[1].Completed).slice(0,30);
+    html='<div class="drill-section">Top 30 cadences by completions</div>'+
+      rows.map(([n,d])=>`<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v">${fmt(d.Completed)} <span style="color:var(--muted);font-size:10px">(${pct(d.Completed,d.total)}%)</span></span></div>`).join('');
+  }else if(key==='openTP'){
+    title='Open TPs — by Cadence';
+    const rows=Object.entries(tpAgg).sort((a,b)=>b[1].Open-a[1].Open).slice(0,30);
+    html='<div class="drill-section">Top 30 cadences by open count</div>'+
+      rows.map(([n,d])=>`<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v">${fmt(d.Open)}</span></div>`).join('');
+  }else if(key==='dropoffs'){
+    title='Drop-offs — by Cadence & Reason';
+    _sd={};_sdIdx=0;
+    const m={};
+    for(const[name,reason,,,cnt] of dRows){if(!m[name])m[name]={total:0,reasons:{}};m[name].total+=cnt;m[name].reasons[reason]=(m[name].reasons[reason]||0)+cnt;}
+    const rows=Object.entries(m).sort((a,b)=>b[1].total-a[1].total).slice(0,20);
+    html='<div class="drill-section">Top 20 cadences — click count to see reason breakdown</div>'+
+      rows.map(([n,d])=>{
+        const i=_sdIdx++;_sd[i]={type:'cadence-dropoffs',key:n};
+        const topR=Object.entries(d.reasons).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([r,c])=>`${r}: ${c}`).join('  &middot;  ');
+        return `<div class="drill-kv"><span class="drill-k"><strong style="color:var(--text)">${n}</strong><br><span style="font-size:10px;color:var(--muted)">${topR}</span></span><span class="drill-v drill-clickable" style="color:var(--danger)" onclick="openSubDrill(${i})">${fmt(d.total)}</span></div>`;
+      }).join('');
+  }else if(key==='activeInCadence'){
+    title='Active in Cadence — Live Snapshot';
+    _sd={};_sdIdx=0;
+    const rows=Array.from(MEMBER_DATA).sort((a,b)=>(b[6]||0)-(a[6]||0)).slice(0,30);
+    html='<div class="drill-section">Top 30 cadences — click count to see member breakdown</div>'+
+      (rows.length?rows.map(r=>{const i=_sdIdx++;_sd[i]={type:'cadence-members',key:r[0]};return `<div class="drill-kv"><span class="drill-k">${r[0]}</span><span class="drill-v drill-clickable" style="color:var(--purple)" onclick="openSubDrill(${i})">${fmt(r[6]||0)} active</span></div>`;}).join(''):'<div class="no-data">No member data</div>');
+  }else if(key==='currentlyOverdue'){
+    title='Currently Overdue — by Rep';
+    _sd={};_sdIdx=0;
+    const repMap={};
+    for(const[c,r,n] of OVERDUE_RAW){if(!repMap[r])repMap[r]=0;repMap[r]+=n;}
+    html='<div class="drill-section">Click a count to see cadence breakdown</div>'+
+      Object.entries(repMap).sort((a,b)=>b[1]-a[1]).map(([r,tot])=>{const i=_sdIdx++;_sd[i]={type:'overdue-rep',key:r};return `<div class="drill-kv"><span class="drill-k">${r}</span><span class="drill-v drill-clickable" style="color:var(--danger)" onclick="openSubDrill(${i})">${fmt(tot)}</span></div>`;}).join('');
+  }else if(key.startsWith('stepType:')){
+    const stype=key.slice(9);
+    title='Open TPs — '+(TYPE_NAMES[stype]||stype)+' Step Type';
+    const cadMap={};
+    for(const[name,st,cnt]of B_DATA){if(st===stype)cadMap[name]=(cadMap[name]||0)+cnt;}
+    const sorted=Object.entries(cadMap).sort((a,b)=>b[1]-a[1]);
+    const stTotal=sorted.reduce((s,[,v])=>s+v,0);
+    html='<div class="drill-section">'+sorted.length+' cadences with open '+(TYPE_NAMES[stype]||stype)+' touchpoints</div>'+
+      sorted.map(([n,v])=>`<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v" style="color:${typeColor(stype)}">${fmt(v)} <span style="color:var(--muted);font-size:10px">(${pct(v,stTotal)}%)</span></span></div>`).join('')+
+      (sorted.length?`<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total Open</span><span class="drill-v" style="font-weight:600">${fmt(stTotal)}</span></div>`:'');
+  }
+  document.getElementById('drillTitle').textContent=title;
+  document.getElementById('drillBody').innerHTML=html||'<div class="no-data">No data available</div>';
+  document.getElementById('drillOverlay').style.display='block';
+  document.getElementById('drillPanel').classList.add('open');
+}
+function closeDrill(){
+  document.getElementById('drillOverlay').style.display='none';
+  document.getElementById('drillPanel').classList.remove('open');
+  drillHistory=[];
+  document.getElementById('drillBackBtn').style.display='none';
+}
+function openSubDrill(idx){
+  const{type,key}=_sd[idx];
+  drillHistory.push({title:document.getElementById('drillTitle').textContent,body:document.getElementById('drillBody').innerHTML});
+  document.getElementById('drillBackBtn').style.display='';
+  let title='',html='';
+  if(type==='overdue-rep'){
+    const cadences=OVERDUE_RAW.filter(([,r])=>r===key);
+    const total=cadences.reduce((s,[,,n])=>s+n,0);
+    title=key+' — Overdue by Cadence';
+    html='<div class="drill-section">Cadences with overdue touchpoints</div>'+
+      cadences.slice().sort((a,b)=>b[2]-a[2]).map(([c,,n])=>`<div class="drill-kv"><span class="drill-k">${c}</span><span class="drill-v" style="color:var(--danger)">${fmt(n)}</span></div>`).join('')+
+      `<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total</span><span class="drill-v" style="color:var(--danger);font-weight:600">${fmt(total)}</span></div>`;
+  }else if(type==='cadence-members'){
+    const row=Array.from(MEMBER_DATA).find(r=>r[0]===key);
+    title=key+' — Member Breakdown';
+    html=row?'<div class="drill-section">Live snapshot — not date-filtered</div>'+
+      `<div class="drill-kv"><span class="drill-k">&#128992; Active (In Progress)</span><span class="drill-v" style="color:var(--accent)">${fmt(row[1]||0)}</span></div>`+
+      `<div class="drill-kv"><span class="drill-k">&#9898; Not Started</span><span class="drill-v">${fmt(row[2]||0)}</span></div>`+
+      `<div class="drill-kv"><span class="drill-k">&#9989; Completed</span><span class="drill-v" style="color:var(--info)">${fmt(row[3]||0)}</span></div>`+
+      `<div class="drill-kv"><span class="drill-k">&#128308; Removed</span><span class="drill-v" style="color:var(--danger)">${fmt(row[4]||0)}</span></div>`+
+      `<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total Ever Enrolled</span><span class="drill-v">${fmt(row[5]||0)}</span></div>`
+      :'<div class="no-data">No detail available for this cadence.</div>';
+  }else if(type==='cadence-dropoffs'){
+    const reasons={};
+    for(const[name,reason,,,cnt] of getFilteredDrop()){if(name===key)reasons[reason]=(reasons[reason]||0)+cnt;}
+    const total=Object.values(reasons).reduce((s,v)=>s+v,0);
+    title=key+' — Removal Reasons';
+    html='<div class="drill-section">All drop-off reasons for this cadence</div>'+
+      Object.entries(reasons).sort((a,b)=>b[1]-a[1]).map(([r,c])=>`<div class="drill-kv"><span class="drill-k">${r}</span><span class="drill-v">${fmt(c)}<span style="color:var(--muted);font-size:10px;margin-left:6px">(${pct(c,total)}%)</span></span></div>`).join('')+
+      `<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total</span><span class="drill-v" style="color:var(--danger)">${fmt(total)}</span></div>`;
+  }else if(key.startsWith('stepType:')){
+    const stype=key.slice(9);
+    title='Open TPs — '+(TYPE_NAMES[stype]||stype)+' Step Type';
+    const cadMap={};
+    for(const[name,st,cnt]of B_DATA){if(st===stype)cadMap[name]=(cadMap[name]||0)+cnt;}
+    const sorted=Object.entries(cadMap).sort((a,b)=>b[1]-a[1]);
+    const stTotal=sorted.reduce((s,[,v])=>s+v,0);
+    html='<div class="drill-section">'+sorted.length+' cadences with open '+(TYPE_NAMES[stype]||stype)+' touchpoints</div>'+
+      sorted.map(([n,v])=>`<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v" style="color:${typeColor(stype)}">${fmt(v)} <span style="color:var(--muted);font-size:10px">(${pct(v,stTotal)}%)</span></span></div>`).join('')+
+      (sorted.length?`<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total Open</span><span class="drill-v" style="font-weight:600">${fmt(stTotal)}</span></div>`:'');
+  }
+  document.getElementById('drillTitle').textContent=title;
+  document.getElementById('drillBody').innerHTML=html||'<div class="no-data">No data available</div>';
+}
+function backFromSubDrill(){
+  const prev=drillHistory.pop();
+  if(prev){
+    document.getElementById('drillTitle').textContent=prev.title;
+    document.getElementById('drillBody').innerHTML=prev.body;
+  }
+  if(!drillHistory.length)document.getElementById('drillBackBtn').style.display='none';
+}
+function exportDrillCSV(){
+  const tpRows=getFilteredTP(),dRows=getFilteredDrop();
+  const tpAgg=aggregateTP(tpRows);
+  let headers=[],rows=[];
+  if(currentDrillKey==='activeCadences'||currentDrillKey==='totalTP'){
+    headers=['Cadence','Total TPs','Completed','Open','Skipped','Removed','Completion %'];
+    rows=Object.entries(tpAgg).sort((a,b)=>b[1].total-a[1].total)
+      .map(([n,d])=>[n,d.total,d.Completed,d.Open,d.Skipped,d.Removed,pct(d.Completed,d.total)+'%']);
+  }else if(currentDrillKey==='completedTP'){
+    headers=['Cadence','Completed TPs','Total TPs','Completion %'];
+    rows=Object.entries(tpAgg).sort((a,b)=>b[1].Completed-a[1].Completed)
+      .map(([n,d])=>[n,d.Completed,d.total,pct(d.Completed,d.total)+'%']);
+  }else if(currentDrillKey==='openTP'){
+    headers=['Cadence','Open TPs','Total TPs','Open %'];
+    rows=Object.entries(tpAgg).sort((a,b)=>b[1].Open-a[1].Open)
+      .map(([n,d])=>[n,d.Open,d.total,pct(d.Open,d.total)+'%']);
+  }else if(currentDrillKey==='dropoffs'){
+    headers=['Cadence','Reason','Count'];
+    const m={};
+    for(const[name,reason,,,cnt] of dRows){if(!m[name])m[name]={};m[name][reason]=(m[name][reason]||0)+cnt;}
+    for(const[name,reasons] of Object.entries(m).sort((a,b)=>
+      Object.values(b[1]).reduce((s,v)=>s+v,0)-Object.values(a[1]).reduce((s,v)=>s+v,0))){
+      for(const[reason,cnt] of Object.entries(reasons).sort((a,b)=>b[1]-a[1])){rows.push([name,reason,cnt]);}
+    }
+  }else if(currentDrillKey==='activeInCadence'){
+    headers=['Cadence','Active Members'];
+    rows=Array.from(MEMBER_DATA).sort((a,b)=>(b[6]||0)-(a[6]||0)).map(r=>[r[0],r[6]||0]);
+
+  }else if(currentDrillKey.startsWith('stepType:')){
+    const stype=currentDrillKey.slice(9);
+    headers=['Cadence','Open TPs','% of Type'];
+    const cadMap={};
+    for(const[name,st,cnt]of B_DATA){if(st===stype)cadMap[name]=(cadMap[name]||0)+cnt;}
+    const stTotal=Object.values(cadMap).reduce((s,v)=>s+v,0);
+    rows=Object.entries(cadMap).sort((a,b)=>b[1]-a[1]).map(([n,v])=>[n,v,pct(v,stTotal)+'%']);
+  }
+  if(!rows.length){alert('No data to export for selected range.');return;}
+  const csv=[headers,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob=new Blob(['ï»¿'+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='thryv_'+currentDrillKey+'_'+new Date().toISOString().slice(0,10)+'.csv';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 buildReasonChips();
 setRange(6, document.querySelectorAll('.range-btn')[2]);
+loadData().then(()=>rebuildAll());
 </script>
 </body>
 </html>
+
+
+
+
+
