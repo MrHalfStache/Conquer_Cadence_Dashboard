@@ -19,7 +19,7 @@ h1 span{color:var(--accent)}
 .active-range-pill{background:rgba(255,80,0,.08);border:1px solid rgba(255,80,0,.2);border-radius:20px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:13px;color:var(--accent)}
 .filter-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .filter-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.range-btn{padding:5px 13px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--label);font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
+.range-btn{padding:8px 13px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--label);font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
 .range-btn:hover,.range-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(255,80,0,.08)}
 .filter-divider{width:1px;height:18px;background:var(--border);flex-shrink:0}
 .custom-dates{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
@@ -118,16 +118,27 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .funnel-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);width:50px;text-align:right;flex-shrink:0}
 /* FILTER CHIP */
 .filter-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.chip{padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:var(--surface2);color:var(--label);font-size:10px;font-weight:500;cursor:pointer;transition:all .2s}
+.chip{padding:7px 12px;border-radius:20px;border:1px solid var(--border);background:var(--surface2);color:var(--label);font-size:10px;font-weight:500;cursor:pointer;transition:all .2s}
 .chip:hover,.chip.active{border-color:var(--accent);color:var(--accent);background:rgba(255,80,0,.08)}
 .no-data{text-align:center;padding:36px;color:var(--muted);font-size:12px}
 .pagination{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:12px}
-.page-btn{background:var(--surface2);border:1px solid var(--border);color:var(--label);padding:4px 10px;border-radius:5px;cursor:pointer;font-size:11px;transition:all .2s}
+.page-btn{background:var(--surface2);border:1px solid var(--border);color:var(--label);padding:7px 10px;border-radius:5px;cursor:pointer;font-size:11px;transition:all .2s}
 .page-btn:hover,.page-btn.active{border-color:var(--accent);color:var(--accent)}
 .stat-card.clickable{cursor:pointer;transition:all .2s}
 .stat-card.clickable:hover{border-color:rgba(255,255,255,.15);transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.35)}
-.stat-card.clickable::after{content:'&#8599;';position:absolute;top:10px;right:12px;font-size:9px;color:var(--muted);opacity:0;transition:opacity .2s}
-.stat-card.clickable:hover::after{opacity:1}
+.stat-card.clickable::after{content:'&#8599;';position:absolute;top:10px;right:12px;font-size:9px;color:var(--muted);opacity:0.3;transition:opacity .2s}
+.stat-card.clickable:hover::after,.stat-card.clickable:focus::after{opacity:1}
+.stat-card.clickable:focus{outline:2px solid var(--accent);outline-offset:2px}
+th.sort-asc::after{content:' \25B2';font-size:8px;color:var(--accent)}
+th.sort-desc::after{content:' \25BC';font-size:8px;color:var(--accent)}
+.table-export-btn{background:rgba(255,80,0,.08);border:1px solid rgba(255,80,0,.25);color:var(--accent);border-radius:5px;padding:3px 9px;cursor:pointer;font-size:10px;font-weight:500;letter-spacing:.03em;transition:all .2s}
+.table-export-btn:hover{background:rgba(255,80,0,.18);border-color:var(--accent)}
+.filter-clear{font-size:10px;color:var(--muted);cursor:pointer;padding:3px 7px;border-radius:4px;border:1px solid var(--border);background:var(--surface2);transition:color .2s,border-color .2s;vertical-align:middle}
+.filter-clear:hover{color:var(--accent);border-color:var(--accent)}
+.filter-summary{font-size:11px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.overdue-item[role="button"]:hover{border-left-color:var(--accent);background:rgba(255,255,255,.04)}
+.overdue-item[role="button"]:focus{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.tab:focus{outline:2px solid var(--accent);outline-offset:-2px}
 #drillOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;backdrop-filter:blur(2px)}
 #drillPanel{position:fixed;top:0;right:0;bottom:0;width:520px;max-width:95vw;background:var(--surface);border-left:1px solid var(--border);z-index:201;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease}
 #drillPanel.open{transform:translateX(0)}
@@ -185,7 +196,10 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
     <h1>CONQUER <span>CADENCE</span> DASHBOARD</h1>
     <span class="badge">DS_PACKAGES__</span>
   </div>
-  <span id="activePill" class="active-range-pill"></span>
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <span id="dataAsOf" style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace"></span>
+    <span id="activePill" class="active-range-pill"></span>
+  </div>
 </div>
 <div class="filter-bar">
   <span class="filter-label">Range</span>
@@ -210,16 +224,17 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
     </div>
   </div>
 </div>
-<div class="tabs">
-  <div class="tab active" onclick="showTab('overview')">Overview</div>
-  <div class="tab" onclick="showTab('touchpoints')">Touchpoints</div>
-  <div class="tab" onclick="showTab('dropoff')">Drop-off</div>
-  <div class="tab" onclick="showTab('steptypes')">Step Types</div>
-  <div class="tab" onclick="showTab('health')">Cadence Health</div>
-  <div class="tab" onclick="showTab('members')">Active Members</div>
-  <div class="tab" onclick="showTab('trends')">Trends</div>
-  <div class="tab" onclick="showTab('unqleads')">Unql. Leads</div>
+<div class="tabs" role="tablist">
+  <div class="tab active" role="tab" aria-selected="true" tabindex="0" onclick="showTab('overview')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('overview')}">Overview</div>
+  <div class="tab" role="tab" aria-selected="false" tabindex="0" onclick="showTab('touchpoints')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('touchpoints')}">Touchpoints</div>
+  <div class="tab" role="tab" aria-selected="false" tabindex="0" onclick="showTab('dropoff')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('dropoff')}">Drop-off</div>
+  <div class="tab" role="tab" aria-selected="false" tabindex="0" onclick="showTab('steptypes')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('steptypes')}">Step Types</div>
+  <div class="tab" role="tab" aria-selected="false" tabindex="0" onclick="showTab('health')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('health')}">Cadence Health</div>
+  <div class="tab" role="tab" aria-selected="false" tabindex="0" onclick="showTab('members')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('members')}">Active Members</div>
+  <div class="tab" role="tab" aria-selected="false" tabindex="0" onclick="showTab('trends')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('trends')}">Trends</div>
+  <div class="tab" role="tab" aria-selected="false" tabindex="0" onclick="showTab('unqleads')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTab('unqleads')}">Unql. Leads</div>
 </div>
+<div id="dataWarning" style="display:none;background:rgba(229,57,53,.08);border-bottom:1px solid rgba(229,57,53,.25);border-left:3px solid var(--danger);padding:8px 28px;font-size:11px;color:var(--danger)">&#9888; Some data files could not be loaded &#8212; displaying cached fallback data.</div>
 <div class="content">
 
 <!-- OVERVIEW -->
@@ -235,6 +250,7 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
     </div>
     <div class="card">
       <div class="card-title">Open TPs by Step Type</div>
+      <div style="font-size:10px;color:var(--muted);margin:-6px 0 10px;font-style:italic">All-time snapshot &#8212; not date-filtered</div>
       <div class="type-grid" id="openByType"></div>
     </div>
   </div>
@@ -263,7 +279,7 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
 <!-- TOUCHPOINTS -->
 <div id="panel-touchpoints" class="panel">
   <div class="stats-row" id="tpStats"></div>
-  <div class="section-header"><span class="section-title">Touchpoint Performance by Cadence</span><span class="section-count" id="tpCount"></span></div>
+  <div class="section-header"><span class="section-title">Touchpoint Performance by Cadence</span><div style="display:flex;align-items:center;gap:8px"><span class="section-count" id="tpCount"></span><button class="table-export-btn" onclick="exportTPCSV()">&#8595; Export CSV</button></div></div>
   <input class="search-bar" id="tpSearch" placeholder="Search cadence..." oninput="tpPage=1;renderTPTable()">
   <div class="table-wrap"><table><thead><tr>
     <th onclick="sortTP('name')">Cadence</th>
@@ -280,8 +296,9 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
 <!-- DROPOFF -->
 <div id="panel-dropoff" class="panel">
   <div class="stats-row" id="doStats"></div>
-  <div class="section-header"><span class="section-title">Drop-off Detail</span><span class="section-count" id="doCount"></span></div>
+  <div class="section-header"><span class="section-title">Drop-off Detail</span><div style="display:flex;align-items:center;gap:8px"><span class="section-count" id="doCount"></span><button class="table-export-btn" onclick="exportDropCSV()">&#8595; Export CSV</button></div></div>
   <div class="filter-chips" id="reasonChips"></div>
+  <div id="doFilterNote" class="filter-summary" style="display:none"></div>
   <input class="search-bar" id="doSearch" placeholder="Search cadence or reason..." oninput="doPage=1;renderDropTable()">
   <div class="table-wrap"><table><thead><tr>
     <th onclick="sortDrop('name')">Cadence</th>
@@ -306,7 +323,7 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
       <div id="removedTypeBreakdown"></div>
     </div>
   </div>
-  <div class="section-header"><span class="section-title">Open TPs by Cadence & Step Type</span><span class="section-count" id="stCount"></span></div>
+  <div class="section-header"><span class="section-title">Open TPs by Cadence &amp; Step Type</span><div style="display:flex;align-items:center;gap:8px"><span class="section-count" id="stCount"></span><button class="table-export-btn" onclick="exportStepTypeCSV()">&#8595; Export CSV</button></div></div>
   <input class="search-bar" id="stSearch" placeholder="Search cadence..." oninput="stPage=1;renderStepTypeTable()">
   <div class="table-wrap"><table><thead><tr>
     <th onclick="sortST('name')">Cadence</th>
@@ -319,7 +336,7 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
 <!-- CADENCE HEALTH -->
 <div id="panel-health" class="panel">
   <div class="stats-row" id="chStats"></div>
-  <div class="section-header"><span class="section-title">Cadence Health - Completion vs Removal by Step Type</span><span class="section-count" id="chCount"></span></div>
+  <div class="section-header"><span class="section-title">Cadence Health - Completion vs Removal by Step Type</span><div style="display:flex;align-items:center;gap:8px"><span class="section-count" id="chCount"></span><button class="table-export-btn" onclick="exportHealthCSV()">&#8595; Export CSV</button></div></div>
   <input class="search-bar" id="chSearch" placeholder="Search cadence..." oninput="chPage=1;renderHealthTable()">
   <div class="table-wrap"><table><thead><tr>
     <th onclick="sortCH('name')">Cadence</th>
@@ -341,6 +358,7 @@ html[data-theme="light"] .drill-body::-webkit-scrollbar-thumb{background:var(--b
     <div class="card"><div class="card-title">Monthly Completions</div><div class="month-chart" id="tpMonthChart"></div></div>
     <div class="card"><div class="card-title">Monthly Drop-offs</div><div class="month-chart" id="dropMonthChart"></div></div>
   </div>
+  <div class="section-header" style="margin-top:4px"><span class="section-title">Monthly Detail</span><button class="table-export-btn" onclick="exportTrendsCSV()">&#8595; Export CSV</button></div>
   <div class="table-wrap"><table><thead><tr>
     <th>Month</th><th>Completed</th><th>Open</th><th>Skipped</th><th>Removed (TP)</th><th>Drop-offs</th><th>Completion %</th>
   </tr></thead><tbody id="trBody"></tbody></table></div>
@@ -445,9 +463,12 @@ async function loadData(){
     ['data/unqualified_reps.json',  d=>{UQL_REP_DATA.length=0;UQL_REP_DATA.push(...d.map(r=>[r.Name,r.LeadCount]));}],
     ['data/unqualified_outcomes.json',d=>{UQL_OUTCOME_DATA.length=0;UQL_OUTCOME_DATA.push(...d.map(r=>[r.Name,r.DS_Packages__Outcome__c,r.cnt]));}],
   ];
-  await Promise.allSettled(jobs.map(([url,apply])=>
+  const results=await Promise.allSettled(jobs.map(([url,apply])=>
     fetch(url).then(r=>r.ok?r.json():Promise.reject(r.status)).then(apply)
   ));
+  const failed=results.filter(r=>r.status==='rejected').length;
+  const warn=document.getElementById('dataWarning');
+  if(warn)warn.style.display=failed>0?'block':'none';
 }
 let memPage=1, memSort={col:'active',dir:-1};
 function sortMem(col){if(memSort.col===col)memSort.dir*=-1;else{memSort.col=col;memSort.dir=-1;}memPage=1;renderMemberTable();}
@@ -465,7 +486,7 @@ function renderMemberTable(){
   const totalComp=rows.reduce((s,r)=>s+r.completed,0);
   document.getElementById('memCount').textContent=rows.length+' cadences';
   document.getElementById('memStats').innerHTML=`
-    <div class="stat-card green"><div class="stat-label">Active Members</div><div class="stat-value">${fmt(totalActive)}</div><div class="stat-sub">In Progress + Not Started</div></div>
+    <div class="stat-card green"><div class="stat-label">Active Members</div><div class="stat-value">${fmt(totalActive)}</div><div class="stat-sub">Currently In Progress</div></div>
     <div class="stat-card blue"><div class="stat-label">Total Ever Enrolled</div><div class="stat-value">${fmt(totalAll)}</div></div>
     <div class="stat-card green"><div class="stat-label">Completion Rate</div><div class="stat-value">${pct(totalComp,totalAll)}%</div><div class="stat-sub">Across all cadences</div></div>
     <div class="stat-card red"><div class="stat-label">Total Removed</div><div class="stat-value">${fmt(rows.reduce((s,r)=>s+r.removed,0))}</div></div>
@@ -493,6 +514,7 @@ function renderMemberTable(){
   }).join('')+'<tr><td colspan="8" style="padding:8px 13px;background:rgba(255,80,0,.03);font-size:11px;color:var(--muted)">Note: Member data is a live snapshot - not date-filtered</td></tr>'
   :'<tr><td colspan="8" class="no-data">No data</td></tr>';
   renderPagination('memPag',memPage,tp,p=>{memPage=p;renderMemberTable();});
+  setSortIndicator('memBody',memSort);
 }
 
 // -- DATE FILTER ---------------------------------------------------------------
@@ -504,6 +526,7 @@ function inRange(mo,yr){
   const hi=filterTo?ymKey(filterTo.yr,filterTo.mo):999999;
   return k>=lo&&k<=hi;
 }
+const LS={TAB:'ccd_tab',RANGE:'ccd_range',FROM:'ccd_from',TO:'ccd_to',REASON:'ccd_reason'};
 function setRange(months,btn){
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
@@ -514,6 +537,7 @@ function setRange(months,btn){
     while(m<=0){m+=12;y--;}
     filterFrom={yr:y,mo:m};filterTo=now;
   }
+  try{localStorage.setItem(LS.RANGE,String(months));}catch(e){}
   updatePill();rebuildAll();
 }
 function applyCustom(){
@@ -522,6 +546,7 @@ function applyCustom(){
   const t=document.getElementById('customTo').value;
   if(f){const[y,m]=f.split('-');filterFrom={yr:+y,mo:+m};}else filterFrom=null;
   if(t){const[y,m]=t.split('-');filterTo={yr:+y,mo:+m};}else filterTo=null;
+  try{localStorage.setItem(LS.RANGE,'custom');localStorage.setItem(LS.FROM,f||'');localStorage.setItem(LS.TO,t||'');}catch(e){}
   updatePill();rebuildAll();
 }
 function updatePill(){
@@ -600,7 +625,10 @@ function drawDonut(data,total,svgId,legendId){
   }
   const _tc=getComputedStyle(document.documentElement).getPropertyValue('--text').trim()||'#f0f0f2';
   const _lc=getComputedStyle(document.documentElement).getPropertyValue('--label').trim()||'#808088';
-  document.getElementById(svgId).innerHTML=paths+`<text x="60" y="57" text-anchor="middle" font-family="DM Mono" font-size="12" font-weight="500" fill="${_tc}">${fmt(total)}</text><text x="60" y="71" text-anchor="middle" font-family="DM Sans" font-size="9" fill="${_lc}">TOTAL</text>`;
+  const svgEl=document.getElementById(svgId);
+  svgEl.setAttribute('role','img');
+  svgEl.setAttribute('aria-label','Touchpoint status: '+data.map(d=>d.label+' '+pct(d.val,total)+'%').join(', '));
+  svgEl.innerHTML=paths+`<text x="60" y="57" text-anchor="middle" font-family="DM Mono" font-size="12" font-weight="500" fill="${_tc}">${fmt(total)}</text><text x="60" y="71" text-anchor="middle" font-family="DM Sans" font-size="9" fill="${_lc}">TOTAL</text>`;
   if(legendId)document.getElementById(legendId).innerHTML=data.map(d=>`<div class="legend-item"><div class="legend-dot" style="background:${d.color}"></div><span class="legend-label">${d.label}</span><span class="legend-val">${pct(d.val,total)}%</span></div>`).join('');
 }
 function drawBarChart(elId,monthly,color){
@@ -611,8 +639,9 @@ function drawBarChart(elId,monthly,color){
   const mn=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   document.getElementById(elId).innerHTML=keys.map((k,i)=>{
     const[yr,mo]=k.split('-');
-    const h=Math.max(3,Math.round((vals[i]/max)*62));
-    return `<div class="month-bar-wrap" title="${mn[+mo]} ${yr}: ${fmt(vals[i])}"><div class="month-bar" style="height:${h}px;background:${color}"></div><span class="month-lbl">${mn[+mo]}</span></div>`;
+    const h=Math.max(3,Math.round((vals[i]/max)*52));
+    const lbl=vals[i]>=1000?Math.round(vals[i]/1000)+'k':vals[i]>0?String(vals[i]):'';
+    return `<div class="month-bar-wrap" title="${mn[+mo]} ${yr}: ${fmt(vals[i])}"><span class="month-lbl" style="margin-bottom:2px;color:var(--label)">${lbl}</span><div class="month-bar" style="height:${h}px;background:${color}"></div><span class="month-lbl">${mn[+mo]}</span></div>`;
   }).join('');
 }
 function renderPagination(id,cur,total,cb){
@@ -631,6 +660,17 @@ function renderPagination(id,cur,total,cb){
 // -- STATIC DATA ---------------------------------------------------------------
 const OVERDUE_RAW=[["GTM - Online SFDC Lead","Kevin Lawlor",465],["GTM - BBB/Chamber of Commerce SFDC Lead","Anthony Torres",430],["ADR - MGL Leads","Cecil Robinson",266],["SDR - Facebook Form Fill Leads","Julianna Singer",245],["SAR - SaaS Dreamers","Alyssa Valdes",222],["ADR - MGL Leads","Katie Dunn",220],["SDR - Facebook Form Fill Leads","Aleksi Moss",197],["SDR - Facebook Form Fill Leads","Eileen Janes",195],["ADR - MGL Leads","Remington Templeton",194],["ADR - MGL Leads","Daniel Storey",184],["GTM - Online SFDC Lead","Cedric Smith",181],["ADR - MGL Leads","Saroya Anderson",180],["ADR - MGL Leads","Cullen Melton",179],["SDR - Facebook Form Fill Leads","Brian Christian",163],["SDR - Facebook Form Fill Leads","Brittney Miller",156]];
 
+// -- HELPERS -------------------------------------------------------------------
+function setSortIndicator(tbodyId,sortState){
+  const tbl=document.getElementById(tbodyId);
+  if(!tbl)return;
+  const t=tbl.closest('table');
+  if(!t)return;
+  t.querySelectorAll('th').forEach(th=>{th.classList.remove('sort-asc','sort-desc');});
+  const active=Array.from(t.querySelectorAll('th')).find(th=>(th.getAttribute('onclick')||'').includes("'"+sortState.col+"'"));
+  if(active)active.classList.add(sortState.dir===1?'sort-asc':'sort-desc');
+}
+
 // -- OVERVIEW ------------------------------------------------------------------
 function renderOverview(){
   const tpRows=getFilteredTP(),dRows=getFilteredDrop();
@@ -643,14 +683,15 @@ function renderOverview(){
   const totalDrop=dRows.reduce((s,[,,,,n])=>s+n,0);
 
     const totalActMem=MEMBER_DATA.reduce((s,[,,,,,,a])=>s+a,0);
+  const _kd=(k)=>`onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDrill('${k}')}"`;
   document.getElementById('ovStats').innerHTML=`
-    <div class="stat-card blue clickable" onclick="openDrill('activeCadences')"><div class="stat-label">Active Cadences</div><div class="stat-value">${Object.keys(tpAgg).length}</div><div class="stat-sub">With TP activity</div></div>
-    <div class="stat-card blue clickable" onclick="openDrill('totalTP')"><div class="stat-label">Total Touchpoints</div><div class="stat-value">${fmt(totalTP)}</div><div class="stat-sub">Selected range</div></div>
-    <div class="stat-card green clickable" onclick="openDrill('completedTP')"><div class="stat-label">Completed TPs</div><div class="stat-value">${fmt(totalC)}</div><div class="stat-sub">${pct(totalC,totalTP)}% rate</div></div>
-    <div class="stat-card yellow clickable" onclick="openDrill('openTP')"><div class="stat-label">Open TPs</div><div class="stat-value">${fmt(totalO)}</div><div class="stat-sub">${pct(totalO,totalTP)}% pending</div></div>
-    <div class="stat-card red clickable" onclick="openDrill('dropoffs')"><div class="stat-label">Drop-offs</div><div class="stat-value">${fmt(totalDrop)}</div><div class="stat-sub">Total removals</div></div>
-    <div class="stat-card purple clickable" onclick="openDrill('activeInCadence')"><div class="stat-label">Active in Cadence</div><div class="stat-value">${fmt(totalActMem)}</div><div class="stat-sub">Live member snapshot</div></div>
-    <div class="stat-card red clickable" onclick="openDrill('currentlyOverdue')"><div class="stat-label">Currently Overdue</div><div class="stat-value">${fmt(OVERDUE_RAW.reduce((s,[,,n])=>s+n,0))}</div><div class="stat-sub">Live snapshot</div></div>
+    <div class="stat-card blue clickable" onclick="openDrill('activeCadences')" tabindex="0" role="button" aria-label="Active Cadences: ${Object.keys(tpAgg).length} — click to drill down" ${_kd('activeCadences')}><div class="stat-label">Active Cadences</div><div class="stat-value">${Object.keys(tpAgg).length}</div><div class="stat-sub">With TP activity</div></div>
+    <div class="stat-card blue clickable" onclick="openDrill('totalTP')" tabindex="0" role="button" aria-label="Total Touchpoints: ${fmt(totalTP)} — click to drill down" ${_kd('totalTP')}><div class="stat-label">Total Touchpoints</div><div class="stat-value">${fmt(totalTP)}</div><div class="stat-sub">Selected range</div></div>
+    <div class="stat-card green clickable" onclick="openDrill('completedTP')" tabindex="0" role="button" aria-label="Completed TPs: ${fmt(totalC)} — click to drill down" ${_kd('completedTP')}><div class="stat-label">Completed TPs</div><div class="stat-value">${fmt(totalC)}</div><div class="stat-sub">${pct(totalC,totalTP)}% rate</div></div>
+    <div class="stat-card yellow clickable" onclick="openDrill('openTP')" tabindex="0" role="button" aria-label="Open TPs: ${fmt(totalO)} — click to drill down" ${_kd('openTP')}><div class="stat-label">Open TPs</div><div class="stat-value">${fmt(totalO)}</div><div class="stat-sub">${pct(totalO,totalTP)}% pending</div></div>
+    <div class="stat-card yellow clickable" onclick="openDrill('dropoffs')" tabindex="0" role="button" aria-label="Drop-offs: ${fmt(totalDrop)} — click to drill down" ${_kd('dropoffs')}><div class="stat-label">Drop-offs</div><div class="stat-value">${fmt(totalDrop)}</div><div class="stat-sub">Total removals</div></div>
+    <div class="stat-card purple clickable" onclick="openDrill('activeInCadence')" tabindex="0" role="button" aria-label="Active in Cadence: ${fmt(totalActMem)} — click to drill down" ${_kd('activeInCadence')}><div class="stat-label">Active in Cadence</div><div class="stat-value">${fmt(totalActMem)}</div><div class="stat-sub">Live member snapshot</div></div>
+    <div class="stat-card red clickable" onclick="openDrill('currentlyOverdue')" tabindex="0" role="button" aria-label="Currently Overdue: ${fmt(OVERDUE_RAW.reduce((s,[,,n])=>s+n,0))} — click to drill down" ${_kd('currentlyOverdue')}><div class="stat-label">Currently Overdue</div><div class="stat-value">${fmt(OVERDUE_RAW.reduce((s,[,,n])=>s+n,0))}</div><div class="stat-sub">Live snapshot</div></div>
   `;
   drawDonut([{label:'Completed',val:totalC,color:'#ff5000'},{label:'Open',val:totalO,color:'#5378fc'},{label:'Skipped',val:totalSk,color:'#ffb347'},{label:'Removed',val:totalRm,color:'#e53935'}],totalTP,'donutSvg','donutLegend');
 
@@ -693,8 +734,8 @@ function renderOverview(){
     <div class="bar-bg"><div class="bar-fill" style="width:${(v/maxRm*100).toFixed(0)}%;background:${typeColor(t)}"></div></div></div>`).join('');
 
   // Overdue
-  document.getElementById('topOverdue').innerHTML=OVERDUE_RAW.map(([c,r,n])=>`
-    <div class="overdue-item"><span class="overdue-rep">${r}</span><span class="overdue-cadence">${c}</span><span class="overdue-count">${n}</span></div>`).join('');
+  document.getElementById('topOverdue').innerHTML=OVERDUE_RAW.map(([c,r,n],idx)=>`
+    <div class="overdue-item" role="button" tabindex="0" title="Click to see all overdue for ${r}" onclick="openOverdueDrill(${idx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openOverdueDrill(${idx})}"><span class="overdue-rep">${r}</span><span class="overdue-cadence">${c}</span><span class="overdue-count">${n}</span></div>`).join('');
 }
 
 // -- TOUCHPOINTS ---------------------------------------------------------------
@@ -725,12 +766,13 @@ function renderTPTable(){
     <td><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${r.rate}%;background:${rc}"></div></div><span class="bar-num" style="color:${rc}">${r.rate}%</span></div></td></tr>`;
   }).join(''):'<tr><td colspan="7" class="no-data">No data</td></tr>';
   renderPagination('tpPag',tpPage,tot,p=>{tpPage=p;renderTPTable();});
+  setSortIndicator('tpBody',tpSort);
 }
 
 // -- DROP-OFF ------------------------------------------------------------------
 let doPage=1,doSort={col:'count',dir:-1},doReasonFilter='All';
 function sortDrop(col){if(doSort.col===col)doSort.dir*=-1;else{doSort.col=col;doSort.dir=-1;}doPage=1;renderDropTable();}
-function setReasonFilter(cat){doReasonFilter=cat;doPage=1;renderDropTable();document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c.dataset.cat===cat));}
+function setReasonFilter(cat){doReasonFilter=cat;doPage=1;try{localStorage.setItem(LS.REASON,cat);}catch(e){}renderDropTable();document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c.dataset.cat===cat));}
 function renderDropTable(){
   const q=document.getElementById('doSearch').value.toLowerCase();
   let rows=getFilteredDrop();
@@ -754,7 +796,11 @@ function renderDropTable(){
     <td><div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${(cnt/max*100).toFixed(0)}%;background:var(--danger)"></div></div><span class="bar-num">${pct(cnt,total)}%</span></div></td></tr>`;
   }).join(''):'<tr><td colspan="5" class="no-data">No data</td></tr>';
   renderPagination('doPag',doPage,tp,p=>{doPage=p;renderDropTable();});
+  setSortIndicator('doBody',doSort);
+  const noteEl=document.getElementById('doFilterNote');
+  if(noteEl){if(doReasonFilter!=='All'||q){const parts=[];if(doReasonFilter!=='All')parts.push(doReasonFilter);if(q)parts.push('"'+q+'"');noteEl.style.display='flex';noteEl.innerHTML='Showing '+sorted.length+' record'+(sorted.length!==1?'s':'')+' &#8212; '+parts.join(' + ')+'&nbsp;&nbsp;<button class="filter-clear" onclick="clearDropFilters()">&#10005; Clear all</button>';}else{noteEl.style.display='none';}}
 }
+function clearDropFilters(){doReasonFilter='All';document.getElementById('doSearch').value='';document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c.dataset.cat==='All'));doPage=1;renderDropTable();}
 function buildReasonChips(){
   const cats=['All','Overdue','Exit Rule','Manual','Inactive','Owner Deact','Acquisition','Other'];
   document.getElementById('reasonChips').innerHTML=cats.map(c=>`<button class="chip${c===doReasonFilter?' active':''}" data-cat="${c}" onclick="setReasonFilter('${c}')">${c}</button>`).join('');
@@ -808,6 +854,7 @@ function renderStepTypeTable(){
     <td>${r.Other>0?`<span style="color:var(--purple);font-family:'DM Mono',monospace">${r.Other}</span>`:'-'}</td>
     </tr>`).join(''):'<tr><td colspan="6" class="no-data">No data</td></tr>';
   renderPagination('stPag',stPage,tp,p=>{stPage=p;renderStepTypeTable();});
+  setSortIndicator('stBody',stSort);
 }
 
 // -- CADENCE HEALTH ------------------------------------------------------------
@@ -854,6 +901,7 @@ function renderHealthTable(){
     <td style="font-size:12px">${health}</td></tr>`;
   }).join(''):'<tr><td colspan="8" class="no-data">No data</td></tr>';
   renderPagination('chPag',chPage,tp,p=>{chPage=p;renderHealthTable();});
+  setSortIndicator('chBody',chSort);
 }
 
 // -- TRENDS --------------------------------------------------------------------
@@ -876,7 +924,8 @@ function renderTrends(){
     const tp=d.Completed+d.Open+d.Skipped+d.Removed;
     const drop=mdrop[k]||0,rate=pct(d.Completed,tp);
     const rc=rate>=70?'var(--accent)':rate>=40?'var(--accent2)':'var(--danger)';
-    return `<tr><td style="font-weight:500">${mn[+mo]} ${yr}</td>
+    return `<tr style="cursor:pointer" onclick="openDrill('trend:${k}')" title="Click to see ${mn[+mo]} ${yr} cadence breakdown">
+    <td style="font-weight:500">${mn[+mo]} ${yr} <span style="font-size:9px;color:var(--muted)">&#8599;</span></td>
     <td><span class="pill pill-green">${fmt(d.Completed)}</span></td>
     <td>${fmt(d.Open)}</td><td>${fmt(d.Skipped)}</td><td>${fmt(d.Removed)}</td>
     <td><strong style="color:var(--danger)">${fmt(drop)}</strong></td>
@@ -891,9 +940,10 @@ function rebuildAll(){
 }
 function showTab(name){
   const tabs=['overview','touchpoints','dropoff','steptypes','health','members','trends','unqleads'];
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===name));
+  document.querySelectorAll('.tab').forEach((t,i)=>{const active=tabs[i]===name;t.classList.toggle('active',active);t.setAttribute('aria-selected',active);});
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
+  try{localStorage.setItem(LS.TAB,name);}catch(e){}
 }
 // â”€â”€ THEME TOGGLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function toggleTheme(){
@@ -1023,6 +1073,25 @@ function openDrill(key){
     html='<div class="drill-section">'+sorted.length+' cadences with open '+(TYPE_NAMES[stype]||stype)+' touchpoints</div>'+
       sorted.map(([n,v])=>`<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v" style="color:${typeColor(stype)}">${fmt(v)} <span style="color:var(--muted);font-size:10px">(${pct(v,stTotal)}%)</span></span></div>`).join('')+
       (sorted.length?`<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total Open</span><span class="drill-v" style="font-weight:600">${fmt(stTotal)}</span></div>`:'');
+  }else if(key.startsWith('trend:')){
+    const yrmo=key.slice(6);
+    const[yr,mo]=yrmo.split('-');
+    const mn2=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    title=mn2[+mo]+' '+yr+' — Cadence Breakdown';
+    const cadMap={};
+    for(const[name,status,m,y,cnt]of tpRows){
+      if(+m===+mo&&+y===+yr){
+        if(!cadMap[name])cadMap[name]={Completed:0,Open:0,Skipped:0,Removed:0,total:0};
+        if(cadMap[name][status]!==undefined)cadMap[name][status]+=cnt;
+        cadMap[name].total+=cnt;
+      }
+    }
+    const dropForMonth=dRows.filter(([,,m,y])=>+m===+mo&&+y===+yr).reduce((s,[,,,,n])=>s+n,0);
+    const cadSorted=Object.entries(cadMap).sort((a,b)=>b[1].Completed-a[1].Completed);
+    const monthTotal=cadSorted.reduce((s,[,d])=>s+d.total,0);
+    html='<div class="drill-section">'+cadSorted.length+' cadences &nbsp;&middot;&nbsp; '+fmt(dropForMonth)+' drop-offs this month</div>'+
+      cadSorted.map(([n,d])=>{const r=d.total>0?Math.round(d.Completed/d.total*100):0;return `<div class="drill-kv"><span class="drill-k">${n}</span><span class="drill-v">${fmt(d.Completed)} <span style="color:var(--muted);font-size:10px">(${r}%)</span></span></div>`;}).join('')+
+      (cadSorted.length?`<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total TPs</span><span class="drill-v" style="font-weight:600">${fmt(monthTotal)}</span></div>`:'');
   }
   document.getElementById('drillTitle').textContent=title;
   document.getElementById('drillBody').innerHTML=html||'<div class="no-data">No data available</div>';
@@ -1114,7 +1183,19 @@ function exportDrillCSV(){
   }else if(currentDrillKey==='activeInCadence'){
     headers=['Cadence','Active Members'];
     rows=Array.from(MEMBER_DATA).sort((a,b)=>(b[6]||0)-(a[6]||0)).map(r=>[r[0],r[6]||0]);
-
+  }else if(currentDrillKey==='currentlyOverdue'){
+    headers=['Rep','Cadence','Count'];
+    rows=OVERDUE_RAW.slice().sort((a,b)=>b[2]-a[2]).map(([c,r,n])=>[r,c,n]);
+  }else if(currentDrillKey.startsWith('trend:')){
+    const yrmo=currentDrillKey.slice(6);
+    const[yr,mo]=yrmo.split('-');
+    const mn2=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    headers=['Cadence','Completed','Open','Skipped','Removed','Total','Completion %'];
+    const cadMap={};
+    for(const[name,status,m,y,cnt]of getFilteredTP()){
+      if(+m===+mo&&+y===+yr){if(!cadMap[name])cadMap[name]={Completed:0,Open:0,Skipped:0,Removed:0,total:0};if(cadMap[name][status]!==undefined)cadMap[name][status]+=cnt;cadMap[name].total+=cnt;}
+    }
+    rows=Object.entries(cadMap).sort((a,b)=>b[1].Completed-a[1].Completed).map(([n,d])=>[n,d.Completed,d.Open,d.Skipped,d.Removed,d.total,d.total>0?Math.round(d.Completed/d.total*100)+'%':'0%']);
   }else if(currentDrillKey.startsWith('stepType:')){
     const stype=currentDrillKey.slice(9);
     headers=['Cadence','Open TPs','% of Type'];
@@ -1134,9 +1215,102 @@ function exportDrillCSV(){
   URL.revokeObjectURL(url);
 }
 
-buildReasonChips();
-setRange(6, document.querySelectorAll('.range-btn')[2]);
-loadData().then(()=>rebuildAll());
+// -- OVERDUE DRILL FROM OVERVIEW -----------------------------------------------
+function openOverdueDrill(rowIdx){
+  const rep=OVERDUE_RAW[rowIdx][1];
+  currentDrillKey='currentlyOverdue';
+  drillHistory=[];
+  const cadences=OVERDUE_RAW.filter(([,r])=>r===rep);
+  const total=cadences.reduce((s,[,,n])=>s+n,0);
+  document.getElementById('drillTitle').textContent=rep+' — Overdue by Cadence';
+  document.getElementById('drillBody').innerHTML='<div class="drill-section">Cadences with overdue touchpoints</div>'+
+    cadences.slice().sort((a,b)=>b[2]-a[2]).map(([c,,n])=>`<div class="drill-kv"><span class="drill-k">${c}</span><span class="drill-v" style="color:var(--danger)">${fmt(n)}</span></div>`).join('')+
+    `<div class="drill-kv" style="margin-top:6px;border-top:2px solid var(--border)"><span class="drill-k" style="font-weight:600;color:var(--text)">Total</span><span class="drill-v" style="color:var(--danger);font-weight:600">${fmt(total)}</span></div>`;
+  document.getElementById('drillOverlay').style.display='block';
+  document.getElementById('drillPanel').classList.add('open');
+  document.getElementById('drillBackBtn').style.display='none';
+}
+
+// -- TABLE EXPORTS -------------------------------------------------------------
+function dlCSV(csv,name){
+  const blob=new Blob(['ï»¿'+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download=name+'_'+new Date().toISOString().slice(0,10)+'.csv';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+}
+function exportTPCSV(){
+  const q=document.getElementById('tpSearch').value.toLowerCase();
+  const agg=aggregateTP(getFilteredTP());
+  let rows=Object.entries(agg).map(([name,d])=>({name,...d,rate:d.total>0?Math.round(d.Completed/d.total*100):0})).filter(r=>!q||r.name.toLowerCase().includes(q));
+  const c=tpSort.col,d=tpSort.dir;rows.sort((a,b)=>c==='name'?a.name.localeCompare(b.name)*d:(b[c]-a[c])*d);
+  if(!rows.length){alert('No data to export.');return;}
+  const h=['Cadence','Total','Completed','Open','Skipped','Removed','Completion %'];
+  dlCSV([h,...rows.map(r=>[r.name,r.total,r.Completed,r.Open,r.Skipped,r.Removed,r.rate+'%'])].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n'),'thryv_touchpoints');
+}
+function exportDropCSV(){
+  const q=document.getElementById('doSearch').value.toLowerCase();
+  let rows=getFilteredDrop();
+  if(doReasonFilter!=='All')rows=rows.filter(r=>classifyReason(r[1])[0]===doReasonFilter);
+  rows=rows.filter(([n,r])=>!q||n.toLowerCase().includes(q)||(r&&r.toLowerCase().includes(q)));
+  const c=doSort.col,d=doSort.dir;
+  rows=[...rows].sort((a,b)=>c==='count'?(b[4]-a[4])*d:c==='name'?a[0].localeCompare(b[0])*d:String(a[1]).localeCompare(String(b[1]))*d);
+  if(!rows.length){alert('No data to export.');return;}
+  const total=rows.reduce((s,r)=>s+r[4],0);
+  const h=['Cadence','Reason','Count','Type','% of Total'];
+  dlCSV([h,...rows.map(([name,reason,,,cnt])=>[name,reason||'',cnt,classifyReason(reason)[0],pct(cnt,total)+'%'])].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n'),'thryv_dropoff');
+}
+function exportStepTypeCSV(){
+  const q=document.getElementById('stSearch').value.toLowerCase();
+  const m={};
+  for(const[cad,stype,cnt]of B_DATA){if(!m[cad])m[cad]={Call:0,Email:0,SMS:0,Other:0,total:0};const k=(['Call','Email','SMS'].includes(stype))?stype:'Other';m[cad][k]+=cnt;m[cad].total+=cnt;}
+  let rows=Object.entries(m).map(([name,d])=>({name,...d})).filter(r=>!q||r.name.toLowerCase().includes(q));
+  const c=stSort.col,d=stSort.dir;rows.sort((a,b)=>c==='name'?a.name.localeCompare(b.name)*d:(b[c]-a[c])*d);
+  if(!rows.length){alert('No data to export.');return;}
+  const h=['Cadence','Total Open','Call','Email','SMS','Other'];
+  dlCSV([h,...rows.map(r=>[r.name,r.total,r.Call,r.Email,r.SMS,r.Other])].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n'),'thryv_steptypes');
+}
+function exportHealthCSV(){
+  const q=document.getElementById('chSearch').value.toLowerCase();
+  const m={};
+  for(const[cad,status,,cnt]of C_DATA){if(!m[cad])m[cad]={Completed:0,Open:0,Skipped:0,Removed:0};if(m[cad][status]!==undefined)m[cad][status]+=cnt;}
+  let rows=Object.entries(m).map(([name,d])=>{const total=d.Completed+d.Open+d.Skipped+d.Removed;return{name,...d,total,rate:pct(d.Completed,total),removeRate:pct(d.Removed,total)};}).filter(r=>!q||r.name.toLowerCase().includes(q));
+  const c=chSort.col,d=chSort.dir;rows.sort((a,b)=>c==='name'?a.name.localeCompare(b.name)*d:(a[c]-b[c])*d);
+  if(!rows.length){alert('No data to export.');return;}
+  const h=['Cadence','Total TPs','Completed','Removed','Skipped','Completion %','Removal %','Health'];
+  dlCSV([h,...rows.map(r=>[r.name,r.total,r.Completed,r.Removed,r.Skipped,r.rate+'%',r.removeRate+'%',r.rate>=70&&r.removeRate<20?'Good':r.rate>=40&&r.removeRate<40?'Review':'At Risk'])].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n'),'thryv_health');
+}
+function exportTrendsCSV(){
+  const tpRows=getFilteredTP(),dRows=getFilteredDrop();
+  const mtp=monthlyTP(tpRows),mdrop=monthlyDrop(dRows);
+  const allKeys=[...new Set([...Object.keys(mtp),...Object.keys(mdrop)])].sort();
+  if(!allKeys.length){alert('No data to export.');return;}
+  const mn=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const h=['Month','Completed','Open','Skipped','Removed (TP)','Drop-offs','Completion %'];
+  dlCSV([h,...allKeys.map(k=>{const[yr,mo]=k.split('-');const d=mtp[k]||{Completed:0,Open:0,Skipped:0,Removed:0};const tp=d.Completed+d.Open+d.Skipped+d.Removed;return[mn[+mo]+' '+yr,d.Completed,d.Open,d.Skipped,d.Removed,mdrop[k]||0,pct(d.Completed,tp)+'%'];})].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n'),'thryv_trends');
+}
+
+// -- DATA AS OF ----------------------------------------------------------------
+const DATA_AS_OF='Apr 2026';
+(function(){const el=document.getElementById('dataAsOf');if(el)el.textContent='Data as of '+DATA_AS_OF;})();
+
+(function init(){
+  let savedRange,savedReason,savedTab,savedFrom,savedTo;
+  try{savedRange=localStorage.getItem(LS.RANGE);savedReason=localStorage.getItem(LS.REASON);savedTab=localStorage.getItem(LS.TAB);savedFrom=localStorage.getItem(LS.FROM);savedTo=localStorage.getItem(LS.TO);}catch(e){}
+  if(savedReason)doReasonFilter=savedReason;
+  buildReasonChips();
+  if(savedRange==='custom'){
+    if(savedFrom)document.getElementById('customFrom').value=savedFrom;
+    if(savedTo)document.getElementById('customTo').value=savedTo;
+    applyCustom();
+  }else{
+    const months=savedRange!==null?Number(savedRange):6;
+    const presets=[1,3,6,12,0];
+    const btnIdx=presets.indexOf(months);
+    const btn=btnIdx>=0?document.querySelectorAll('.range-btn')[btnIdx]:document.querySelectorAll('.range-btn')[2];
+    setRange(months,btn);
+  }
+  loadData().then(()=>{rebuildAll();if(savedTab)showTab(savedTab);});
+})();
 </script>
 </body>
 </html>
